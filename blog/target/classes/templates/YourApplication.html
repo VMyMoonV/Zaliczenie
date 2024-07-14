@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your Application</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #002b47;
+        }
+        header .nav-link {
+            color: #ffffff;
+        }
+        header .nav-link.active {
+            background-color: #ffc107;
+            color: #000000;
+        }
+        .container h1 {
+            color: #002b47;
+        }
+        .footer {
+            background-color: #002b47;
+            color: #ffffff;
+            padding: 1rem 0;
+        }
+        .btn-primary {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            color: #000000;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                country: params.get('country') || '',
+                city: params.get('city') || '',
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const { country, city } = getQueryParams();
+            if (country) document.getElementById('country').value = country;
+            if (city) document.getElementById('city').value = city;
+        });
+    </script>
+</head>
+<body>
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4 text-white">Travel Agency</span>
+    </a>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="/Booking" class="nav-link">Booking</a></li>
+        <li class="nav-item"><a href="/YourApplication" class="nav-link active">Your Application</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+    </ul>
+</header>
+
+<div class="container form-container mt-5">
+    <h1>Add a Tour</h1>
+    <form action="/YourApplication" method="post">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="Enter country" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="nights" class="form-label">Number of Nights</label>
+                <input type="number" class="form-control" id="nights" name="nights" placeholder="Enter number of nights" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="meals" class="form-label">Meals</label>
+                <input type="text" class="form-control" id="meals" name="meals" placeholder="Enter meal type" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="adults" class="form-label">Number of Adults</label>
+                <input type="number" class="form-control" id="adults" name="adults" placeholder="Enter number of adults" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="children" class="form-label">Number of Children</label>
+                <input type="number" class="form-control" id="children" name="children" placeholder="Enter number of children" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="departureDate" class="form-label">Departure Date</label>
+                <input type="date" class="form-control" id="departureDate" name="departureDate" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="contact" class="form-label">Contact</label>
+                <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter contact details" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="specialOffer" class="form-label">Special Offer</label>
+                <input type="text" class="form-control" id="specialOffer" name="specialOffer" placeholder="Enter special offer (optional)">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Tour</button>
+    </form>
+</div>
+
+<footer class="footer text-center mt-4">
+    <p>&copy; 2024 Travel Agency. All rights reserved.</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
